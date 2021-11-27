@@ -1,10 +1,13 @@
 #include <iostream>
 #include "screen.h"
+#define clear() printf("\033[H\033[J")
 
 void screen_clear()
 {
-    std::cout << "\033[2J";
-    std::cout << "\033[1;1H";
+    // Clear terminal
+    std::cout << "\x1b[H\x1b[J";
+    // Hide cursor
+    std::cout << "\e[?25l";
 }
 
 void screen_draw_board(const std::map<std::pair<int,int>,bool> &board)
@@ -16,8 +19,10 @@ void screen_draw_board(const std::map<std::pair<int,int>,bool> &board)
         int x = coords.first;
         int y = coords.second;
 
-        std::cout << "\033["<<x << ";"<< y <<"H";
+        std::cout << "\x1b["<<x << ";"<< y <<";H";
         std::cout << "*";
 
     }
+
+    std::cout << std::flush;
 }

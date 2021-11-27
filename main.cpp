@@ -16,10 +16,12 @@ std::vector<snake_segment_st> snake_segments;
 int main(int, char**) {
     std::cout << "Snake starting...\n";
 
+    int x = 0,y = 0;
+
     while (true)
     {
         screen_clear();
-        board_set_pixel(snake_board, 10, 10);
+        board_set_pixel(snake_board, x++, y++);
         screen_draw_board(snake_board);
         std::this_thread::sleep_for (std::chrono::milliseconds(100));
     }
