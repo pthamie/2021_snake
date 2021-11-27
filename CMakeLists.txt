@@ -4,11 +4,14 @@ project(snake VERSION 0.1.0)
 include(CTest)
 enable_testing()
 
+include_directories("./includes")
+
 FILE(GLOB mainSources *.cpp)
 FILE(GLOB cppSources cpp/*.cpp)
 
 add_executable (snake
         ${mainSources}
+        ${cppSources}
 )
 
 target_include_directories(snake PUBLIC
