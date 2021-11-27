@@ -19,6 +19,9 @@ void screen_draw_board(const std::map<std::pair<int,int>,bool> &board)
         int x = coords.first;
         int y = coords.second;
 
+        // Positionnement en row/column.
+        // (1,1) en haut a gauche
+        // x = row, y = column
         std::cout << "\x1b["<<x << ";"<< y <<";H";
         std::cout << "*";
 
