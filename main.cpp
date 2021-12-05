@@ -36,6 +36,15 @@ int main(int, char**) {
         board_set_pixel(snake_board, x, y);
         screen_draw_board(snake_board);
 
+        // Simulation d'un déplacement automatique/calculé
+        x++;
+        if (x >= 10)
+        {
+          x= 1;
+        }
+        // Fin simulation
+
+
         // Lecture clavier et actions
         int key_scan = keyboard_scan();
         if (key_scan == UP_ARROW)

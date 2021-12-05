@@ -30,8 +30,10 @@ char keyboard_scan()
     fd_set set;
     struct timeval tv;
 
-    tv.tv_sec = 10;
-    tv.tv_usec = 0;
+    // Modification de période de scan
+    // Passage 1s à 1 ms
+    tv.tv_sec = 0;
+    tv.tv_usec = 1000;
 
     FD_ZERO(&set);
     FD_SET(fileno(stdin), &set);
