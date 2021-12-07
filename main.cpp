@@ -26,6 +26,8 @@ int main(int, char**) {
 
     int x = 0,y = 0;
 
+    std::chrono::steady_clock::time_point last_move = std::chrono::steady_clock::now();
+
     while (true)
     {
 
@@ -36,13 +38,22 @@ int main(int, char**) {
         board_set_pixel(snake_board, x, y);
         screen_draw_board(snake_board);
 
-        // Simulation d'un déplacement automatique/calculé
-        x++;
-        if (x >= 10)
+        long ellapsedms = 0;
+        std::chrono::steady_clock::time_point end = std::chrono::steady_clock::now();
+
+        ellapsedms = (long)std::chrono::duration_cast<std::chrono::milliseconds>(end - last_move).count();
+        if (ellapsedms > 500)
         {
-          x= 1;
+            // Simulation d'un déplacement automatique/calculé
+            x++;
+            if (x >= 10)
+            {
+            x= 1;
+            }
+            // Fin simulation
+
+            last_move = std::chrono::steady_clock::now();
         }
-        // Fin simulation
 
 
         // Lecture clavier et actions
