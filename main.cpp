@@ -6,6 +6,7 @@
 #include "screen.h"
 #include "board.h"
 #include "keyboard.h"
+#include "CSnakeSegment3D.h"
 
 #define UP_ARROW    65
 #define LEFT_ARROW  68
@@ -21,6 +22,23 @@ std::vector<snake_segment_st> snake_segments;
 
 int main(int, char**) {
     std::cout << "Snake starting...\n";
+
+    snake_segment_st segment0;
+    segment0.x;
+    segment0.name;
+    
+    CSnakeSegment seg1;
+    CSnakeSegment seg2;
+    std::cout << "segment construit\n";
+    
+    std::cout << "segment détruit\n";
+
+    //seg1._x;
+
+    seg1.change_colour();
+
+    CSnakeSegment3D seg3d01;
+    seg3d01.change_colour();
 
     keyboard_init();
 
